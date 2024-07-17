@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reparaciones - Promotora de Viviendas</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" href="Imagenes/logo proyecto/icono png.png" type="image/png">
+    <script>
+        function showReportForm() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            if (username && password) {
+                document.getElementById('login-form').style.display = 'none';
+                document.getElementById('report-form').style.display = 'block';
+            } else {
+                alert('Por favor, ingrese su usuario y contraseña.');
+            }
+        }
+
+        function showRegisterForm() {
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('register-form').style.display = 'block';
+        }
+
+        function showLoginForm() {
+            document.getElementById('register-form').style.display = 'none';
+            document.getElementById('login-form').style.display = 'block';
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .logo {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="password"], input[type="file"], textarea {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .link {
+            color: #007bff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="Imagenes/logo proyecto/2.png" alt="Logotipo de Casa Viva" class="logo">
+        <div id="login-form">
+            <h3>Iniciar Sesión</h3>
+            <form onsubmit="event.preventDefault(); showReportForm();">
+                <input type="text" id="username" name="username" placeholder="Usuario" required><br>
+                <input type="password" id="password" name="password" placeholder="Contraseña" required><br>
+                <button type="submit">Iniciar sesión</button>
+            </form>
+            <div>
+                <span class="link" onclick="showRegisterForm()">Crear cuenta</span>
+                <br>
+                <span class="link">Olvidé mi contraseña</span>
+            </div>
+        </div>
+        <div id="register-form" style="display: none;">
+            <h3>Crear Cuenta</h3>
+            <form action="registrar_usuario.html" method="POST">
+                <input type="text" name="new-username" placeholder="Usuario" required><br>
+                <input type="password" name="new-password" placeholder="Contraseña" required><br>
+                <input type="password" name="confirm-password" placeholder="Confirmar Contraseña" required><br>
+                <button type="submit">Registrarse</button>
+            </form>
+            <div>
+                <span class="link" onclick="showLoginForm()">Volver a Iniciar sesión</span>
+            </div>
+        </div>
+        <div id="report-form" style="display: none;">
+            <h3>Reporte de Daño</h3>
+            <form action="procesar_reporte.html" method="POST" enctype="multipart/form-data">
+                <input type="text" id="casa" name="casa" placeholder="Número de Casa" required><br>
+                <input type="text" id="direccion" name="direccion" placeholder="Dirección/Proyecto" required><br>
+                <textarea id="descripcion" name="descripcion" rows="4" placeholder="Descripción del Daño" required></textarea><br>
+                <input type="file" id="imagen" name="imagen" accept="image/*" required><br>
+                <button type="submit">Enviar Reporte</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

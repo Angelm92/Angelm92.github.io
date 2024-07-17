@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactos - casa viva</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" href="Imagenes/logo proyecto/icono png.png" type="image/png">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="Imagenes/logo proyecto/icono png.png" alt="Logotipo de la Promotora" class="logo">
+            <img src="Imagenes/logo proyecto/slogan.png" alt="Texto junto al logotipo" class="slogan-image">
+        </div>
+        <div class="contact-header">
+            <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <span>302 5400</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>Casaviva@unesa.com</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Vía España, Edificio Casaviva</span>
+            </div>
+            <div class="contact-item">
+                <a href="contactos.html" class="contact-button">CONTÁCTANOS</a>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="proyectos.html">Nuestros Proyectos</a></li>
+                <li><a href="quienes_somos.html">Quienes Somos</a></li>
+                <li><a href="Reparaciones.html">Reparaciones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="formulario">
+        <h2>Formulario de Contacto</h2>
+        <form action="enviar.php" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required><br><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required><br><br>
+            
+            <label for="whatsapp">Teléfono con WhatsApp:</label>
+            <input type="tel" id="whatsapp" name="whatsapp" required><br><br>
+            
+            <label for="proyecto">Seleccione un proyecto:</label>
+            <select id="proyecto" name="proyecto">
+                <option value="Proyecto Marieto">Poryecto Marieto</option>
+                <option value="Proyecto Cadiz">Proyecto Cadiz</option>
+                <option value="Proyecto Altos de Azul">Proyecto Altos de Azul</option>
+            </select><br><br>
+            
+            <label for="mensaje">Mensaje:</label><br>
+            <textarea id="mensaje" name="mensaje" rows="4" cols="50"></textarea><br><br>
+            
+            <input type="checkbox" id="politica" name="politica" required>
+            <label for="politica">Según lo establece la ley 81 de 26 de Marzo de 2019 sobre protección de datos, he leído y acepto las política de privacidad</label><br><br>
+            
+            <input type="submit" value="Enviar">
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="contact-info">
+                <h3>Recibe más información de nuestros proyectos!</h3>
+                <p>302-5400</p>
+                <p>Casaviva@gmail.com</p>
+                <p>Vía España, Tower Bank</p>
+            </div>
+            <div class="quick-links">
+                <h3>Enlaces de interés</h3>
+                <ul>
+                    <li><a href="quienes_somos.html">Quienes somos</a></li>
+                    <li><a href="reparaciones.html">Reparaciones</a></li>
+                </ul>
+            </div>
+            <div class="project-links">
+                <h3>Proyectos</h3>
+                <ul>
+                    <li><a href="P">Proyecto marieta</a></li>
+                    <li><a href="#">Proyecto Cadiz</a></li>
+                    <li><a href="#">Proyecto floresta</a></li>
+                    <!-- Agrega más proyectos aquí -->
+                </ul>
+            </div>
+            <div class="social-media">
+                <h3>Síguenos en redes sociales</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                    <li><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://www.telegram.org" target="_blank"><i class="fab fa-telegram"></i></a></li>
+                    <li><a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Casa Viva</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" href="Imagenes/logo proyecto/icono png.png" type="image/png">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="Imagenes/logo proyecto/icono png.png" alt="Logotipo de la Promotora" class="logo">
+            <img src="Imagenes/logo proyecto/slogan.png" alt="Texto junto al logotipo" class="slogan-image">
+        </div>
+        <div class="contact-header">
+            <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <span>302 5400</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>Casaviva@unesa.com</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Vía España, Edificio Casaviva</span>
+            </div>
+            <div class="contact-item">
+                <a href="contactos.html" class="contact-button">CONTÁCTANOS</a>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="quienes_somos.html">Quienes Somos</a></li>
+                <li><a href="contactos.html">Contacto</a></li>
+                <li><a href="Reparaciones.html">Reparaciones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="proyectos">
+        <h2>Nuestros Proyectos</h2>
+        <div class="proyecto">
+            <img src="Imagenes/Casa Marieto/casa1.jpg" alt="Proyecto_1">
+            <h3>Proyecto marieta</h3>
+            <p>Desde $81,799</p>
+            <p>LOTE 170.20 ㎡</p>        
+            <p>HABITACIONES 3</p        
+            <p>1 Baño</p>
+            <p>Amplia Sala / comedor.</p>
+            <p>Cocina.</p>
+            <p>Lavandería.</p>
+            <p>ESTACIONAMIENTO</p>
+            <P>SECTOR Este</P>
+            <p>Direccion Los lote de Pacora, calle San Martin</p>
+        
+            <button onclick="openMarietoDetails()">Ver detalles</button>
+        </div>
+        <div class="proyecto">
+            <img src="Imagenes/Casa Cadiz/casa.jpg" alt="Proyecto_2">
+            <h3>Proyecto Cadiz</h3>
+            <p>DESDE B/. 69,999.00</p>
+            <p>Lote 156 m²</p>
+            <p>3 habitaciones.</p>
+            <p>2 baños.</p>
+            <p> Amplia Sala / comedor.</p>
+            <p>Cocina.</p>
+            <p>Lavandería.</p>
+            <p>Estacionamiento.</p>
+            <P>SECTOR Oeste</P>
+            <p>Direccion via puerto de vacamonte, nuevo arraijan</p>
+
+            <button onclick="openCadizDetails()">Ver detalles</button>
+        </div>
+        <div class="proyecto">
+            <img src="Imagenes/Casa La floresta/Casa.jpg" alt="Proyecto_3">
+            <h3>Proyecto floresta</h3>
+            <p>Desde $66,000</p>
+            <p>Lote 150 m2</p>
+            <p>3 Habitaciones</p>
+            <p>2 Baños</p>
+            <p> Amplia Sala / comedor.</p>
+            <p>Cocina.</p>
+            <p>Lavandería.</p>
+            <p>1 Estacionamiento</p>
+            <P>SECTOR Este</P>
+            <p>Direccion Panama Este, via principal Tanara, chepo</p>
+            <button onclick="openFlorestaDetails()">Ver detalles</button>
+        </div>
+    </section>
+
+    <section id="marieto-details" style="display: none;">
+        <div>
+            <h3>Imágenes del Proyecto</h3>
+            <div class="image-gallery">
+                <img src="Imagenes/Casa Marieto/sala.jpg" alt="Sala 1" onclick="openImageModal(this)">
+                <img src="Imagenes/Casa Marieto/sala2.jpg" alt="Sala 2" onclick="openImageModal(this)">
+                <img src="Imagenes/Casa Marieto/cuarto 1.jpg" alt="Cuarto 1" onclick="openImageModal(this)">
+                <img src="Imagenes/Casa Marieto/cuarto 2.jpg" alt="Cuarto 2" onclick="openImageModal(this)">
+                <img src="Imagenes/Casa Marieto/cuarto 3.jpg" alt="Cuarto 3" onclick="openImageModal(this)">
+                <img src="Imagenes/Casa Marieto/cocina.jpg" alt="Cocina 1" onclick="openImageModal(this)">
+                <img src="Imagenes/Casa Marieto/cocina 2.jpg" alt="Cocina 2" onclick="openImageModal(this)">
+                <img src="Imagenes/Casa Marieto/baño.jpg" alt="Baño 1" onclick="openImageModal(this)">
+                <img src="Imagenes/Casa Marieto/baño 2.jpg" alt="Baño 2" onclick="openImageModal(this)">
+            </div>
+        </div>
+        <div class="tab-container">
+            <button class="tab-button active" onclick="openTab(event, 'tour-virtual-marieto')">Tour Virtual</button>
+            <button class="tab-button" onclick="openTab(event, 'planos-marieto')">Planos</button>
+            <button class="tab-button" onclick="openTab(event, 'mapa-marieto')">Mapa</button>
+        </div>
+        <div id="tour-virtual-marieto" class="tab-content active">
+            <iframe src="https://inmerso3d.online/3d-model/gs-marieta/fullscreen/" width="100%" height="450px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div id="planos-marieto" class="tab-content">
+            <img src="Imagenes/Planos/planos marieta.jpg" alt="Planos del Proyecto Marieto" width="100%">
+        </div>
+        <div id="mapa-marieto" class="tab-content">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6625.27816850756!2d-79.30281280113115!3d9.117029555785685!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e54ab0023ab1dc1%3A0x21f659498561dd52!2sPuertas%20de%20Vigo!5e0!3m2!1ses!2sus!4v1721145939755!5m2!1ses!2sus" width="2000" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+    
+    <section id="cadiz-details" style="display: none;">
+        <div>
+            <h3>Imágenes del Proyecto</h3>
+            <div class="image-gallery">
+                <img src="Imagenes/Casa Cadiz/sala.jpg" alt="Sala 1" onclick="openImageModal(this)">
+                <img src="Imagenes/Casa Cadiz/comedor.jpg" alt="Comedor" onclick="openImageModal(this)">
+                <img src="Imagenes/Casa Cadiz/cocina.jpg" alt="Cocina 1" onclick="openImageModal(this)">
+                <img src="Imagenes/Casa Cadiz/cocina 2.jpg" alt="Cocina 2" onclick="openImageModal(this)">
+                <img src="Imagenes/Casa Cadiz/cuarto1.jpg" alt="Cuarto 1" onclick="openImageModal(this)">
+                <img src="Imagenes/Casa Cadiz/cuarto 2.jpg" alt="Cuarto 2" onclick="openImageModal(this)">
+                <img src="Imagenes/Casa Cadiz/cuarto 3.jpg" alt="Cuarto 3" onclick="openImageModal(this)">
+                <img src="Imagenes/Casa Cadiz/baño.jpg" alt="Baño 1" onclick="openImageModal(this)">
+                <img src="Imagenes/Casa Cadiz/baño 2.jpg" alt="Baño 2" onclick="openImageModal(this)">
+                <img src="Imagenes/Casa Cadiz/lavanderia.jpg" alt="Lavandería" onclick="openImageModal(this)">
+            </div>
+        </div>
+        <div class="tab-container">
+            <button class="tab-button active" onclick="openTab(event, 'tour-virtual-cadiz')">Tour Virtual</button>
+            <button class="tab-button" onclick="openTab(event, 'planos-cadiz')">Planos</button>
+            <button class="tab-button" onclick="openTab(event, 'mapa-cadiz')">Mapa</button>
+        </div>
+        <div id="tour-virtual-cadiz" class="tab-content active">
+            <iframe src="https://my.matterport.com/show/?play=1&lang=en-US&m=PN7i1koSEnW" width="100%" height="450px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div id="planos-cadiz" class="tab-content">
+            <img src="Imagenes/Planos/planos cadiz.jpg" alt="Planos del Proyecto Cadiz" width="100%">
+        </div>
+        <div id="mapa-cadiz" class="tab-content">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9375.07917048135!2d-79.68160477033427!3d8.904188870831701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8faca39a5aa8a93d%3A0xe470509e42398596!2sSala%20de%20Ventas%20La%20Hacienda%20%7C%20Vacamonte!5e0!3m2!1ses-419!2spa!4v1721159086351!5m2!1ses-419!2spa" width="2000" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+    
+    <section id="floresta-details" style="display: none;">
+        <div>
+            <h3>Imágenes del Proyecto</h3>
+            <div class="image-gallery">
+                <img src="Imagenes/Casa La floresta/sala.jpg" alt="Sala 1" onclick="openImageModal(this)">
+                <img src="Imagenes/Casa La floresta/comedor.png" alt="Comedor" onclick="openImageModal(this)">
+                <img src="Imagenes/Casa La floresta/cocina.png" alt="Cocina" onclick="openImageModal(this)">
+                <img src="Imagenes/Casa La floresta/cuarto 1.jpg" alt="Cuarto 1" onclick="openImageModal(this)">
+                <img src="Imagenes/Casa La floresta/cuarto 2.jpg" alt="Cuarto 2" onclick="openImageModal(this)">
+                <img src="Imagenes/Casa La floresta/cuarto 3.jpg" alt="Cuarto 3" onclick="openImageModal(this)">
+                <img src="Imagenes/Casa La floresta/baño.png" alt="Baño" onclick="openImageModal(this)">
+            </div>
+        </div>
+        <div class="tab-container">
+            <button class="tab-button active" onclick="openTab(event, 'tour-virtual-floresta')">Tour Virtual</button>
+            <button class="tab-button" onclick="openTab(event, 'planos-floresta')">Planos</button>
+            <button class="tab-button" onclick="openTab(event, 'mapa-floresta')">Mapa</button>
+        </div>
+        <div id="tour-virtual-floresta" class="tab-content active">
+            <iframe src="https://inmerso3d.online/3d-model/modelo-corotu-la-floresta/fullscreen/" width="100%" height="450px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div id="planos-floresta" class="tab-content">
+            <img src="Imagenes/Planos/planos la floresta.png" alt="Planos del Proyecto La Floresta" width="100%">
+        </div>
+        <div id="mapa-floresta" class="tab-content">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7878.294915463256!2d-79.21770563239276!3d9.141151838192416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e54af834380ae87%3A0xc9db37832b5856cf!2sUrbanizaci%C3%B3n%20La%20Floresta!5e0!3m2!1ses-419!2spa!4v1721239360426!5m2!1ses-419!2spa" width="2000" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 Promotora de Viviendas. Todos los derechos reservados.</p>
+    </footer>
+
+    <div id="image-modal" class="modal">
+        <span class="close" onclick="closeImageModal()">&times;</span>
+        <img class="modal-content" id="modal-image">
+        <a class="arrow prev" onclick="changeImage(-1)">&#10094;</a>
+        <a class="arrow next" onclick="changeImage(1)">&#10095;</a>
+    </div>
+
+    <script>
+        let currentImageIndex = 0;
+        let images = [];
+    
+        function openImageModal(element) {
+            const modal = document.getElementById('image-modal');
+            const modalImg = document.getElementById('modal-image');
+            modal.style.display = "flex";
+            modalImg.src = element.src;
+    
+            images = Array.from(element.parentElement.querySelectorAll('img'));
+            currentImageIndex = images.indexOf(element);
+        }
+    
+        function closeImageModal() {
+            const modal = document.getElementById('image-modal');
+            modal.style.display = "none";
+        }
+    
+        function changeImage(n) {
+            currentImageIndex = (currentImageIndex + n + images.length) % images.length;
+            const modalImg = document.getElementById('modal-image');
+            modalImg.src = images[currentImageIndex].src;
+        }
+    
+        function openMarietoDetails() {
+            document.getElementById('marieto-details').style.display = "block";
+            document.getElementById('proyectos').style.display = "none";
+            history.pushState({ project: 'marieto' }, '', '#marieto');
+        }
+    
+        function openCadizDetails() {
+            document.getElementById('cadiz-details').style.display = "block";
+            document.getElementById('proyectos').style.display = "none";
+            history.pushState({ project: 'cadiz' }, '', '#cadiz');
+        }
+    
+        function openFlorestaDetails() {
+            document.getElementById('floresta-details').style.display = "block";
+            document.getElementById('proyectos').style.display = "none";
+            history.pushState({ project: 'floresta' }, '', '#floresta');
+        }
+    
+        function openTab(evt, tabName) {
+            const tabContents = document.querySelectorAll('.tab-content');
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabContents.forEach(tab => tab.classList.remove('active'));
+            tabButtons.forEach(tab => tab.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+            history.pushState({ tab: tabName }, '', '#' + tabName);
+        }
+    
+        window.addEventListener('popstate', function(event) {
+            const state = event.state;
+            if (state) {
+                if (state.project) {
+                    document.getElementById('proyectos').style.display = "none";
+                    document.getElementById(state.project + '-details').style.display = "block";
+                } else if (state.tab) {
+                    const tabContents = document.querySelectorAll('.tab-content');
+                    const tabButtons = document.querySelectorAll('.tab-button');
+                    tabContents.forEach(tab => tab.classList.remove('active'));
+                    tabButtons.forEach(tab => tab.classList.remove('active'));
+                    document.getElementById(state.tab).classList.add('active');
+                    const tabButton = Array.from(tabButtons).find(button => button.textContent.trim() === state.tab.split('-')[1].replace('tour', 'Tour Virtual').replace('planos', 'Planos').replace('mapa', 'Mapa'));
+                    if (tabButton) tabButton.classList.add('active');
+                }
+            } else {
+                document.getElementById('proyectos').style.display = "block";
+                document.getElementById('marieto-details').style.display = "none";
+                document.getElementById('cadiz-details').style.display = "none";
+                document.getElementById('floresta-details').style.display = "none";
+            }
+        });
+    
+        // Initialize state based on URL hash
+        document.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash;
+            if (hash) {
+                const state = hash.substring(1);
+                if (state.includes('marieto')) openMarietoDetails();
+                else if (state.includes('cadiz')) openCadizDetails();
+                else if (state.includes('floresta')) openFlorestaDetails();
+                else openTab({ currentTarget: document.querySelector(`[onclick*="${state}"]`) }, state);
+            }
+        });
+    
+        // Desplazamiento automático de la presentación de diapositivas
+        setInterval(() => {
+            changeSlide(1);
+        }, 3000);
+    </script>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="contact-info">
+                <h3>Recibe más información de nuestros proyectos!</h3>
+                <p>302-5400</p>
+                <p>Casaviva@gmail.com</p>
+                <p>Vía España, Tower Bank</p>
+            </div>
+            <div class="quick-links">
+                <h3>Enlaces de interés</h3>
+                <ul>
+                    <li><a href="quienes_somos.html">Quienes somos</a></li>
+                    <li><a href="reparaciones.html">Reparaciones</a></li>
+                </ul>
+            </div>
+            <div class="project-links">
+                <h3>Proyectos</h3>
+                <ul>
+                    <li><a href="P">Proyecto marieta</a></li>
+                    <li><a href="#">Proyecto Cadiz</a></li>
+                    <li><a href="#">Proyecto floresta</a></li>
+                    <!-- Agrega más proyectos aquí -->
+                </ul>
+            </div>
+            <div class="social-media">
+                <h3>Síguenos en redes sociales</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                    <li><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://www.telegram.org" target="_blank"><i class="fab fa-telegram"></i></a></li>
+                    <li><a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

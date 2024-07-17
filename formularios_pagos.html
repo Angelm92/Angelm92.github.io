@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios de Pago</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Favicon -->
+    <link rel="icon" href="Imagenes/logo proyecto/icono png.png" type="image/png">
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        function showForm() {
+            const method = getQueryParam('method');
+            if (method) {
+                document.getElementById('form_' + method).style.display = 'block';
+            }
+        }
+
+        window.onload = showForm;
+    </script>
+</head>
+<body>
+    <h1>Pagos o abonos</h1>
+
+    <!-- Formulario de Pago Visa -->
+    <section id="form_visa" style="display: none;">
+        <h2>Formulario de Pago Visa</h2>
+        <form action="procesar_pago_visa.php" method="POST" class="credit-card-form">
+          <img src="imagenes/logos de metodos de pagos/visa.png" alt="Visa Card">
+    
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="numero_tarjeta">Número de Tarjeta:</label>
+            <input type="text" id="numero_tarjeta" name="numero_tarjeta" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="tipo_tarjeta">Tipo de Tarjeta:</label>
+            <select id="tipo_tarjeta" name="tipo_tarjeta" required>
+              <option value="visa">Visa</option>
+            </select>
+          </div>
+    
+          <div class="form-group">
+            <label for="fecha_caducidad">Fecha de Caducidad:</label>
+            <input type="text" id="fecha_caducidad" name="fecha_caducidad" placeholder="MM/AA" maxlength="5" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="cvv">Código de Seguridad CVV:</label>
+            <input type="text" id="cvv" name="cvv" maxlength="3" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="direccion_facturacion">Dirección de Facturación:</label>
+            <input type="text" id="direccion_facturacion" name="direccion_facturacion" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="ciudad">Ciudad:</label>
+            <input type="text" id="ciudad" name="ciudad" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="estado">Estado/Provincia:</label>
+            <input type="text" id="estado" name="estado" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="codigo_postal">Código Postal:</label>
+            <input type="text" id="codigo_postal" name="codigo_postal" required>
+          </div>
+    
+          <button type="submit">Pagar</button>
+        </form>
+      </section>
+
+    <!-- Formulario de Pago Mastercard -->
+    <section id="form_mastercard" style="display: none;">
+        <h2>Formulario de Pago Visa</h2>
+        <form action="procesar_pago_mastercard.php" method="POST" class="credit-card-form">
+          <img src="imagenes/logos de metodos de pagos/mastercard.png" alt=" mastercard">
+    
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="numero_tarjeta">Número de Tarjeta:</label>
+            <input type="text" id="numero_tarjeta" name="numero_tarjeta" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="tipo_tarjeta">Tipo de Tarjeta:</label>
+            <select id="tipo_tarjeta" name="tipo_tarjeta" required>
+              <option value="mastercard">Mastercard</option>
+            </select>
+          </div>
+    
+          <div class="form-group">
+            <label for="fecha_caducidad">Fecha de Caducidad:</label>
+            <input type="text" id="fecha_caducidad" name="fecha_caducidad" placeholder="MM/AA" maxlength="5" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="cvv">Código de Seguridad CVV:</label>
+            <input type="text" id="cvv" name="cvv" maxlength="3" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="direccion_facturacion">Dirección de Facturación:</label>
+            <input type="text" id="direccion_facturacion" name="direccion_facturacion" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="ciudad">Ciudad:</label>
+            <input type="text" id="ciudad" name="ciudad" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="estado">Estado/Provincia:</label>
+            <input type="text" id="estado" name="estado" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="codigo_postal">Código Postal:</label>
+            <input type="text" id="codigo_postal" name="codigo_postal" required>
+          </div>
+    
+          <button type="submit">Pagar</button>
+        </form>
+      </section>
+
+<!-- Formulario de Pago Nequi -->
+<section id="form_nequi" class="payment-form" style="display:none;">
+  <h2>Formulario de Pago Nequi</h2>
+  <form action="procesar_pago_nequi.php" method="POST" onsubmit="generarQRNequi(event)">
+      <div class="form-group">
+          <label for="nombre_nequi">Nombre:</label>
+          <input type="text" id="nombre_nequi" name="nombre_nequi" required>
+      </div>
+      <div class="form-group">
+          <label for="numero_celular_nequi">Número de Celular:</label>
+          <input type="text" id="numero_celular_nequi" name="numero_celular_nequi" required>
+      </div>
+      <div class="form-group">
+          <label for="monto_nequi">Monto a Pagar:</label>
+          <input type="text" id="monto_nequi" name="monto_nequi" required>
+      </div>
+      <button type="submit">Pagar</button>
+  </form>
+  <div id="qr_code_nequi"></div>
+  <img src="Imagenes/logos de metodos de pagos/nequi.png" alt="Logo Nequi" class="payment-logo">
+</section>
+
+<!-- Formulario de Pago Yappy -->
+<section id="form_yappy" class="payment-form" style="display:none;">
+  <h2>Formulario de Pago Yappy</h2>
+  <form action="procesar_pago_yappy.php" method="POST" onsubmit="generarQRYappy(event)">
+      <div class="form-group">
+          <label for="nombre_yappy">Nombre:</label>
+          <input type="text" id="nombre_yappy" name="nombre_yappy" required>
+      </div>
+      <div class="form-group">
+          <label for="numero_telefono_yappy">Número de Teléfono:</label>
+          <input type="text" id="numero_telefono_yappy" name="numero_telefono_yappy" required>
+      </div>
+      <div class="form-group">
+          <label for="monto_yappy">Monto a Pagar:</label>
+          <input type="text" id="monto_yappy" name="monto_yappy" required>
+      </div>
+      <button type="submit">Pagar</button>
+  </form>
+  <div id="qr_code_yappy"></div>
+  <img src="Imagenes/logos de metodos de pagos/yappy.png" alt="Logo Yappy" class="payment-logo">
+</section>
+
+
+    <!-- Formulario de Pago Clave -->
+    <section id="form_clave" style="display: none;">
+        <h2>Formulario de Pago Clave</h2>
+        <form action="procesar_pago_clave.php" method="POST" class="credit-card-form">
+          <img src="imagenes/logos de metodos de pagos/clave.png" alt=" clave">
+    
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="numero_tarjeta">Número de Tarjeta:</label>
+            <input type="text" id="numero_tarjeta" name="numero_tarjeta" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="tipo_tarjeta">Tipo de Tarjeta:</label>
+            <select id="tipo_tarjeta" name="tipo_tarjeta" required>
+              <option value="clave">Clave</option>
+            </select>
+          </div>
+    
+          <div class="form-group">
+            <label for="fecha_caducidad">Fecha de Caducidad:</label>
+            <input type="text" id="fecha_caducidad" name="fecha_caducidad" placeholder="MM/AA" maxlength="5" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="cvv">Código de Seguridad CVV:</label>
+            <input type="text" id="cvv" name="cvv" maxlength="3" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="direccion_facturacion">Dirección de Facturación:</label>
+            <input type="text" id="direccion_facturacion" name="direccion_facturacion" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="ciudad">Ciudad:</label>
+            <input type="text" id="ciudad" name="ciudad" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="estado">Estado/Provincia:</label>
+            <input type="text" id="estado" name="estado" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="codigo_postal">Código Postal:</label>
+            <input type="text" id="codigo_postal" name="codigo_postal" required>
+          </div>
+    
+          <button type="submit">Pagar</button>
+        </form>
+      </section>
+
+      <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+<script>
+    function generarQRNequi(event) {
+        event.preventDefault();
+        const nombre = document.getElementById('nombre_nequi').value;
+        const numeroCelular = document.getElementById('numero_celular_nequi').value;
+        const monto = document.getElementById('monto_nequi').value;
+        const data = `Nombre: ${nombre}\nNúmero de Celular: ${numeroCelular}\nMonto a Pagar: ${monto}`;
+
+        QRCode.toDataURL(data, { width: 200 }, function (err, url) {
+            if (err) throw err;
+            const qrCodeContainer = document.getElementById('qr_code_nequi');
+            qrCodeContainer.innerHTML = `<img src="${url}">`;
+        });
+    }
+
+    function generarQRYappy(event) {
+        event.preventDefault();
+        const nombre = document.getElementById('nombre_yappy').value;
+        const numeroTelefono = document.getElementById('numero_telefono_yappy').value;
+        const monto = document.getElementById('monto_yappy').value;
+        const data = `Nombre: ${nombre}\nNúmero de Teléfono: ${numeroTelefono}\nMonto a Pagar: ${monto}`;
+
+        QRCode.toDataURL(data, { width: 200 }, function (err, url) {
+            if (err) throw err;
+            const qrCodeContainer = document.getElementById('qr_code_yappy');
+            qrCodeContainer.innerHTML = `<img src="${url}">`;
+        });
+    }
+</script>
+
+</body>
+</html>

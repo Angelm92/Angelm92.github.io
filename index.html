@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Viva</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" href="Imagenes/logo proyecto/icono png.png" type="image/png">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="Imagenes/logo proyecto/icono png.png" alt="Logotipo de la Promotora" class="logo">
+            <img src="Imagenes/logo proyecto/slogan.png" alt="Texto junto al logotipo" class="slogan-image">
+        </div>
+        <div class="contact-header">
+            <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <span>302 5400</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>Casaviva@unesa.com</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Vía España, Edificio Casaviva</span>
+            </div>
+            <div class="contact-item">
+                <a href="contactos.html" class="contact-button">CONTÁCTANOS</a>
+            </div>
+        </div>
+          
+        <nav>
+            <ul>
+                <li><a href="proyectos.html">Nuestros Proyectos</a></li>
+                <li><a href="quienes_somos.html">Quienes Somos</a></li>
+                <li><a href="contactos.html">Contacto</a></li>
+                <li><a href="Reparaciones.html">Reparaciones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="carousel">
+        <h2>Casa viva</h2>
+        <div class="carousel-images">
+            <img src="Imagenes/Banner/Banner descuento.png" alt="Banner 1" class="active">
+            <img src="Imagenes/Banner/banner visita.png" alt="Banner 2">
+            <img src="Imagenes/poryectos amplios/vista area.jpg" alt="Banner 3">
+            <img src="Imagenes/poryectos amplios/vista area 2.jpg" alt="Banner 4">
+        </div>
+        <div class="carousel-buttons">
+            <span id="prev">&lt;</span>
+            <span id="next">&gt;</span>
+        </div>
+    </section>
+
+    <!-- New Section for Projects -->
+    <section id="projects">
+        <h2>¡Encuentra tu hogar ideal!</h2>
+        <p>Más de 50 años de experiencia en promoción de viviendas de interés social</p>
+        <div class="project-container">
+            <div class="project-card">
+                <img src="Imagenes/logo proyecto/marieta.png" alt="Proyecto 1">
+                <h3>Proyecto marieta</h3>
+                <p>Panamá Este</p>
+                <a href="Proyectos.html" class="btn">Ver más</a>
+            </div>
+            <div class="project-card">
+                <img src="Imagenes/logo proyecto/Cadiz.jpg" alt="Proyecto 2">
+                <h3>Proyecto Cadiz</h3>
+                <p>Panamá Oeste</p>
+                <a href="Proyectos.html" class="btn">Ver más</a>
+            </div>
+            <div class="project-card">
+                <img src="Imagenes/logo proyecto/la floresta.png" alt="Proyecto 3">
+                <h3>La Floresta</h3>
+                <p>Panamá Este</p>
+                <a href="Proyectos.html" class="btn">Ver más</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="video-container">
+        <video controls>
+            <source src="videos/Casas Pacíficas _ Altos de Azul en Panamá Este.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+    </div>
+
+    <section id="payment-methods">
+        <h2>Selecciona tu Método de Pago para Descuentos</h2>
+        <div class="payment-options">
+            <img src="Imagenes/logos de metodos de pagos/visa.png" alt="visa" class="payment-img" onclick="redirectToForm('visa')">
+            <img src="Imagenes/logos de metodos de pagos/mastercard.png" alt="mastercard" class="payment-img" onclick="redirectToForm('mastercard')">
+            <img src="Imagenes/logos de metodos de pagos/nequi.png" alt="nequi" class="payment-img" onclick="redirectToForm('nequi')">
+            <img src="Imagenes/logos de metodos de pagos/yappy.png" alt="yappy" class="payment-img" onclick="redirectToForm('yappy')">
+            <img src="Imagenes/logos de metodos de pagos/clave.png" alt="clave" class="payment-img" onclick="redirectToForm('clave')">
+        </div>
+    </section>
+
+    <script>
+        function redirectToForm(paymentMethod) {
+            window.location.href = 'formularios_pagos.html?method=' + paymentMethod;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('.carousel-images img');
+            let currentIndex = 0;
+
+            function showImage(index) {
+                images.forEach((img, i) => {
+                    img.classList.toggle('active', i === index);
+                });
+            }
+
+            function nextImage() {
+                currentIndex = (currentIndex + 1) % images.length;
+                showImage(currentIndex);
+            }
+
+            function prevImage() {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                showImage(currentIndex);
+            }
+
+            document.getElementById('next').addEventListener('click', nextImage);
+            document.getElementById('prev').addEventListener('click', prevImage);
+
+            setInterval(nextImage, 5000); // Cambia cada 5 segundos
+        });
+    </script>
+
+    <!-- GetButton.io widget whatsapp -->
+    <script type="text/javascript">
+        (function () {
+            var options = {
+                whatsapp: "+1234567890", // Número de WhatsApp
+                call_to_action: "Aplique aqui", // Texto del botón
+                position: "right", // Posición del widget
+            };
+            var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
+            var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+            s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+            var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+        })();
+    </script>
+
+    <footer>
+        <div class="footer-container">
+            <div class="contact-info">
+                <h3>Recibe más información de nuestros proyectos!</h3>
+                <p>302-5400</p>
+                <p>Casaviva@gmail.com</p>
+                <p>Vía España, Tower Bank</p>
+            </div>
+            <div class="quick-links">
+                <h3>Enlaces de interés</h3>
+                <ul>
+                    <li><a href="quienes_somos.html">Quienes somos</a></li>
+                    <li><a href="reparaciones.html">Reparaciones</a></li>
+                </ul>
+            </div>
+            <div class="project-links">
+                <h3>Proyectos</h3>
+                <ul>
+                    <li><a href="P">Proyecto marieta</a></li>
+                    <li><a href="#">Proyecto Cadiz</a></li>
+                    <li><a href="#">Proyecto floresta</a></li>
+                    <!-- Agrega más proyectos aquí -->
+                </ul>
+            </div>
+            <div class="social-media">
+                <h3>Síguenos en redes sociales</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                    <li><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://www.telegram.org" target="_blank"><i class="fab fa-telegram"></i></a></li>
+                    <li><a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Todos los derechos reservados. Casaviva, Corp.</p>
+        </div>
+    </footer>
+</body>
+</html>
